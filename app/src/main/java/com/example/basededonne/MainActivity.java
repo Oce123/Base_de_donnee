@@ -23,15 +23,14 @@ Button b;
         heure = findViewById(R.id.heure);
         b = findViewById(R.id.ajouter);
 
-        b.setOnClickListener(View.OnClickListener());
+        b.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view){
+            public void onClick(View view) {
                 Salle_disponible s = new Salle_disponible(numero.getText().toString(),Double.parseDouble(heure.getText().toString()));
                 h.insertSalle(s);
                 Intent i = new Intent(MainActivity.this, ListeSalle.class);
                 startActivity(i);
             }
-
-
+        });
     }
 }

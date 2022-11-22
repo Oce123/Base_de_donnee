@@ -2,6 +2,7 @@ package com.example.basededonne;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -34,6 +35,19 @@ public class DetailSalle extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 Salle_disponible sd = new Salle_disponible(Integer.parseInt(id),numero.getText().toString(), Double.parseDouble(heure.getText().toString()));
+
+                h.updtaeSalle(sd);
+                Intent i = new Intent(DetailSalle.this, ListeSalle.class);
+                startActivity(i);
+            }
+        });
+
+        sup.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                h.deleteSalle(Integer.parseInt(id));
+                Intent i = new Intent(DetailSalle.this, ListeSalle.class);
+                startActivity(i);
             }
         });
     }
