@@ -23,8 +23,8 @@ public class ListeSalle extends AppCompatActivity {
 
         Cursor c = h.getAllSalle();
         SimpleCursorAdapter adapter = new SimpleCursorAdapter(ListeSalle.this, R.layout.item, c,
-                new String[]{c.getColumnName(0), c.getColumnName(1), c.getColumnName(2)},
-                new int[]{R.id.id,R.id.numerosalle, R.id.heuredebut},1);
+                new String[]{c.getColumnName(0), c.getColumnName(1), c.getColumnName(2), c.getColumnName(3)},
+                new int[]{R.id.id,R.id.numerosalle, R.id.heuredebut, R.id.heurefin},1);
         ls.setAdapter(adapter);
 
         ls.setOnItemClickListener(new AdapterView.OnItemClickListener() {

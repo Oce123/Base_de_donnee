@@ -18,7 +18,7 @@ public class Helper extends SQLiteOpenHelper {
 
     @Override
     public void onCreate(SQLiteDatabase db) {
-        db.execSQL("CREATE TABLE salle_disponible(_id INTEGER PRIMARY KEY, numero TEXT,heure REAL)");
+        db.execSQL("CREATE TABLE salle_disponible(_id INTEGER PRIMARY KEY, numero TEXT,heure REAL, heure2 REAL)");
     }
 
     @Override
@@ -32,6 +32,7 @@ public class Helper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put("numero", s.getNumero());
         cv.put("heure", s.getHeure());
+        cv.put("heure2", s.getHeure2());
 
         db.insert("salle_disponible", null, cv);
         db.close();
@@ -42,6 +43,7 @@ public class Helper extends SQLiteOpenHelper {
         ContentValues cv = new ContentValues();
         cv.put("numero", s.getNumero());
         cv.put("heure", s.getHeure());
+        cv.put("heure2", s.getHeure2());
 
         db.update ("salle_disponible", cv, "_id=?", new String[]{String.valueOf(s.getId())});
         db.close();
@@ -61,9 +63,9 @@ public class Helper extends SQLiteOpenHelper {
 
     public Salle_disponible getOneSalle(int id){
         SQLiteDatabase db = this.getReadableDatabase();
-        Cursor c = db.query("salle_disponible", new String[]{"_id","numero","heure"},"_id=?", new String[]{String.valueOf(id)}, null, null, null);
+        Cursor c = db.query("salle_disponible", new String[]{"_id","numero","heure", "heure2"},"_id=?", new String[]{String.valueOf(id)}, null, null, null);
         c.moveToFirst();
-        Salle_disponible s = new Salle_disponible(c.getInt(0), c.getString(1), c.getDouble(2));
+        Salle_disponible s = new Salle_disponible(c.getInt(0), c.getString(1), c.getDouble(2), c.getDouble(3));
         return s;
     }
 }

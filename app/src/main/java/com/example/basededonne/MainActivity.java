@@ -10,7 +10,7 @@ import android.widget.EditText;
 
 public class MainActivity extends AppCompatActivity {
 
-EditText numero, heure;
+EditText numero, heure, heure2;
 Button b;
 
     Helper h = new Helper(MainActivity.this);
@@ -21,12 +21,13 @@ Button b;
 
         numero = findViewById(R.id.numero);
         heure = findViewById(R.id.heure);
+        heure2 = findViewById(R.id.heure_fin);
         b = findViewById(R.id.ajouter);
 
         b.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Salle_disponible s = new Salle_disponible(numero.getText().toString(),Double.parseDouble(heure.getText().toString()));
+                Salle_disponible s = new Salle_disponible(numero.getText().toString(),Double.parseDouble(heure.getText().toString()), Double.parseDouble(heure2.getText().toString()));
                 h.insertSalle(s);
                 Intent i = new Intent(MainActivity.this, ListeSalle.class);
                 startActivity(i);
