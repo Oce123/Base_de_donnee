@@ -33,4 +33,9 @@ Button b;
             }
         });
     }
+
+    public void liste_salle(View view){
+        Intent bouton_salle = new Intent(this, ListeSalle.class);
+        startActivity(bouton_salle);
+    }
 }

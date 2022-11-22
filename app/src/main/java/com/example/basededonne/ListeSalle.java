@@ -37,4 +37,9 @@ public class ListeSalle extends AppCompatActivity {
             }
         });
     }
+
+    public void back(View view){
+        Intent bouton_back = new Intent(this, MainActivity.class);
+        startActivity(bouton_back);
+    }
 }

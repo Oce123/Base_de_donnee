@@ -51,4 +51,9 @@ public class DetailSalle extends AppCompatActivity {
             }
         });
     }
+
+    public void retour(View view){
+        Intent bouton_retour = new Intent(this, ListeSalle.class);
+        startActivity(bouton_retour);
+    }
 }
